@@ -5,7 +5,7 @@ function Index(){
 				<div className="terminal-header">
 					<p>root@spyro:/About#</p>
 				</div>
-				<div className="terminal-body">
+				<div className="terminal-body sm:flex">
 					<div className="profile flex sm:mr-5 sm:w-1/3 justify-center items-center">
 						<div className="mt-3 mb-5 sm:mb-0 border-2 p-2 rounded-md border-light-gray">
 							<img id="profile-pic" className="rounded-md " src="https://avatars.githubusercontent.com/u/84992671?s=400&u=fca8a8b1d3b563698dd2d8367d3137d1d6b61f46&v=4" />
@@ -13,7 +13,7 @@ function Index(){
 					</div>
 					<fieldset className="terminal-box md:w-full">
 						<legend>root@<span>spyro</span>:~#</legend>
-						<div className="p-3">
+						<div className="p-3 text-xs sm:text-base ">
 							<p> {">"} <span>Name:</span> Spyridon Mihalopoulos</p>
 							<p> {">"} <span>Citizenship:</span> Venezuelan</p>
 							<p> {">"} <span>Location:</span> Barquisimeto, Lara - Venezuela</p>
@@ -25,6 +25,24 @@ function Index(){
 							</div>
 						</div>
 					</fieldset>
+				</div>
+			</div>
+
+			<div className="terminal mt-12">
+				<div className="terminal-header">
+					<p>root@spyro:/Education#</p>
+				</div>
+				<div className="terminal-body">
+					<fieldset className="terminal-box w-full">
+						<legend>Secundary Education</legend>
+						<div className="p-3 text-xs sm:text-base">
+							<p>{">"} <span>Institution:</span></p>
+							<p>{">"} <span>Web:</span></p>
+							<p>{">"} <span>Web:</span></p>
+						</div>
+					</fieldset>
+					<div className="p-3 border-2 border-light-gray mt-4 rounded-sm">
+					</div>
 				</div>
 			</div>
 		</div>

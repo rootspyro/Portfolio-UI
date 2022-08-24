@@ -33,11 +33,11 @@ span{
 }
 
 .terminal-body {
-	@apply p-5  sm:flex;
+	@apply p-5 ;
 }
 
 .terminal-box {
-	@apply border-2 border-light-gray rounded-md;
+	@apply border-2 border-light-gray rounded-sm;
 }
 
 .terminal-box > legend {
