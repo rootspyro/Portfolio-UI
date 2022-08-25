@@ -10,6 +10,7 @@ body {
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+	overflow-y: hidden;
 }
 
 span{
@@ -78,7 +79,7 @@ span{
 }
 
 .typed-cursor{
-	z-index: 1;
+	z-index: 2;
 }
 
 @media only screen and ( min-width: 420px ) {

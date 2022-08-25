@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default function MobileMenu(props : any){
-  const {setMenu} = props;
+  const {setMenu, handleMenu} = props;
 	return(
-    <div className="flex flex-col justify-between h-screen bg-white border-r">
+    <>
+    <div className="flex flex-col justify-between h-screen bg-white border-r z-20">
       <div className="px-4 py-6">
         <span className="block w-32 h-10 bg-gray-200 rounded-lg"></span>
 
@@ -68,5 +69,13 @@ export default function MobileMenu(props : any){
         </a></Link>
       </div>
     </div>
+      <style>
+        { ` 
+          body {
+            overflow-y : ${ handleMenu ? "hidden" : "auto" }
+          }
+        ` }
+      </style>
+    </>
 	)
 }
