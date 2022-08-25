@@ -95,7 +95,7 @@ function Index(props : { developer : any }){
 						{ 
 							studies.map((study : any, index : number)=>{
 								return(
-									<fieldset className={`terminal-box ${index + 1 < studies.length ? "md:mr-3 mb-5 md:mb-0" : ""}`}>
+									<fieldset key={study.title} className={`terminal-box ${index + 1 < studies.length ? "md:mr-3 mb-5 md:mb-0" : ""}`}>
 										<legend>{study.title}</legend>
 										<div className="p-3 text-xs sm:text-base">
 											<p>{">"} <span>Institution:</span> { study.institution }</p>
