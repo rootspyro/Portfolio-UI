@@ -9,7 +9,7 @@ export default function Navbar(){
   
 	return(
   <>
-    <header className="bg-dark-gray w-full fixed z-10 shadow-md">
+    <header className="bg-dark-gray w-full fixed z-10 shadow-md ">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="md:flex md:items-center md:gap-12">

@@ -5,10 +5,12 @@ import Typed from "typed.js"
 export default function Footer(){
 
 	useEffect(()=>{
+		/*
 		new Typed('.footer-logo',{
 			strings : ['$ root@<span>spyro</span>:/Footer#'],
 			typeSpeed : 40
-			})
+			});
+		 */
 	},[]);
 
 	return(
@@ -16,12 +18,10 @@ export default function Footer(){
 			<footer className="bg-dark">
 				<div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
 					<div className="flex justify-center">
-						<h1 className="text-lg md:text-xl font-bold footer-logo"></h1>
+						<h1 className="text-lg md:text-xl font-bold footer-logo"> $ root@<span>spyro</span>:/Footer#</h1>
 					</div>
 
 					<p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-						consequuntur amet culpa cum itaque neque.
 					</p>
 
 					<nav className="mt-12" aria-labelledby="footer-navigation">
@@ -118,6 +118,10 @@ export default function Footer(){
 							</a>
 						</li>
 					</ul>
+				<div className="text-center text-xs mt-16 text-dark-text">
+					<p>Spyridon Mihalopoulos &copy; 2022. All rights reserved.</p>
+					<p className="mt-5">Free SVG Background by <a target="_blank" href="https://bgjar.com" className="text-orange">BGJar</a></p>
+				</div>
 				</div>
 			</footer>
 
