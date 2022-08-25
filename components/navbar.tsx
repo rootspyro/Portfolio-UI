@@ -2,7 +2,7 @@ import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default function Navbar(){
 	return(
-	<header className="bg-dark-gray w-full fixed">
+	<header className="bg-dark-gray w-full fixed z-10">
   <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
     <div className="flex items-center justify-between h-16">
       <div className="md:flex md:items-center md:gap-12">

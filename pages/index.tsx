@@ -1,4 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
+import Typed from "typed.js";
 
 function Index(props : { developer : any }){
 	
@@ -7,11 +9,23 @@ function Index(props : { developer : any }){
 	const studies = data.studies.data;
 	const skills = data.skills.data;
 
+	useEffect(()=>{
+		new Typed('#main-endpoint',{
+			strings : [`<span className="text-orange">curl</span> -X 'GET' '${process.env.NEXT_PUBLIC_API}/developers'`],
+			typeSpeed : 40 
+		})
+
+		new Typed('#studies-endpoint',{
+			strings : [`<span className="text-orange">curl</span> -X 'GET' '${process.env.NEXT_PUBLIC_API}${data.studies.links.self}'`],
+			typeSpeed : 40 
+		})
+	},[]);
+
 	return(
 		<div className="flex justify-center flex-wrap px-5 sm:px-10 md:px-28">
 			<div className="endpoint-box mt-24 w-full bg-dark-gray shadow-lg">
 				<div className="endpoint">
-					<p>{process.env.NEXT_PUBLIC_API}/developers</p>
+					<span id="main-endpoint" className="text-light-gray"></span>
 				</div>
 				<div className="endpoint-button">
 					<a className="hover:text-orange/75 transition" target="_blank" href={`${process.env.NEXT_PUBLIC_API}/developers`}>
@@ -23,7 +37,7 @@ function Index(props : { developer : any }){
 				<div className="terminal-header">
 					<p>root@spyro:/About#</p>
 				</div>
-				<div className="terminal-body sm:flex">
+				<div id="profile-terminal" className="terminal-body ">
 					<div className="profile flex sm:mr-5 sm:w-1/3 justify-center items-center">
 						<div className="mt-3 mb-5 sm:mb-0 border-2 p-2 rounded-md border-light-gray">
 							<img id="profile-pic" className="rounded-md " src="https://avatars.githubusercontent.com/u/84992671?s=400&u=fca8a8b1d3b563698dd2d8367d3137d1d6b61f46&v=4" />
@@ -64,14 +78,14 @@ function Index(props : { developer : any }){
 				</div>
 			</div>
 
-			<div className="terminal mt-12">
+			<div className="terminal mt-12 mb-12">
 				<div className="terminal-header">
 					<p>root@spyro:/Education#</p>
 				</div>
 				<div className="terminal-body">
 					<div className="endpoint-box ">
 						<div className="endpoint">
-							<p>{process.env.NEXT_PUBLIC_API}{data.studies.links.self}</p>
+							<span className="text-light-gray" id="studies-endpoint"></span>
 						</div>
 						<div className="endpoint-button">
 							<a target="_blank" className="hover:text-orange/75 transition" href={`${process.env.NEXT_PUBLIC_API}${data.studies.links.self}`}><FontAwesomeIcon icon="fa-solid fa-up-right-from-square" /></a>

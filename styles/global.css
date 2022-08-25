@@ -55,8 +55,9 @@ span{
 }
 
 .endpoint {
-	@apply whitespace-nowrap overflow-x-auto;
+	@apply whitespace-nowrap overflow-x-auto flex;
 	width: 90%;
+
 }
 
 .endpoint-button{
@@ -75,3 +76,14 @@ span{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.typed-cursor{
+	z-index: 1;
+}
+
+@media only screen and ( min-width: 420px ) {
+	#profile-terminal {
+		display: flex;
+	}
+}
+
