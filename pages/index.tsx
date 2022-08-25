@@ -1,7 +1,25 @@
-function Index(){
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function Index(props : { developer : any }){
+	
+	const { developer } = props;
+	const data = developer.data.attributes;
+	const studies = data.studies.data;
+	const skills = data.skills.data;
+
 	return(
 		<div className="flex justify-center flex-wrap px-5 sm:px-10 md:px-28">
-			<div className="terminal mt-24 sm:mt-32">
+			<div className="endpoint-box mt-24 w-full bg-dark-gray shadow-lg">
+				<div className="endpoint">
+					<p>{process.env.NEXT_PUBLIC_API}/developers</p>
+				</div>
+				<div className="endpoint-button">
+					<a className="hover:text-orange/75 transition" target="_blank" href={`${process.env.NEXT_PUBLIC_API}/developers`}>
+						<FontAwesomeIcon icon="fa-solid fa-up-right-from-square" />
+					</a>
+				</div>
+			</div>
+			<div className="terminal mt-5">
 				<div className="terminal-header">
 					<p>root@spyro:/About#</p>
 				</div>
@@ -14,14 +32,32 @@ function Index(){
 					<fieldset className="terminal-box md:w-full">
 						<legend>root@<span>spyro</span>:~#</legend>
 						<div className="p-3 text-xs sm:text-base ">
-							<p> {">"} <span>Name:</span> Spyridon Mihalopoulos</p>
-							<p> {">"} <span>Citizenship:</span> Venezuelan</p>
-							<p> {">"} <span>Location:</span> Barquisimeto, Lara - Venezuela</p>
-							<p> {">"} <span>Role:</span> Backend Developer</p>
-							<p> {">"} <span>Experience:</span> +1 years of laboral experience</p>
+							<p> {">"} <span>Name:</span> {data.name} {data.lastname} </p>
+							<p> {">"} <span>Citizenship:</span> {data.citizenship}</p>
+							<p> {">"} <span>Location:</span> {data.city}, {data.region} - {data.country}</p>
+							<p> {">"} <span>Role:</span> {data.experience.data.role}</p>
+							<p> {">"} <span>Experience:</span> +{data.experience.data.years} years of laboral experience</p>
 							<div className="hidden lg:block">
-								<p> {">"} <span>Frontend_techs:</span>[<span>"</span>Javascript<span>"</span>]</p>
-								<p> {">"} <span>Backend_techs:</span>[<span>"</span>NodeJs<span>"</span>]</p>
+								<p> {">"} <span>Frontend_techs: </span> [
+								{
+									skills.frontend.data.map((tech : any,index : number) => {
+										return(
+											<><span>"</span>{tech.attributes.name}<span>"</span>{index + 1 < skills.frontend.data.length ? "," : ""}</>
+										)
+									})
+								}
+								]
+								</p>
+								<p> {">"} <span>Backend_techs: </span> [
+								{
+									skills.backend.data.map((tech : any,index : number) => {
+										return(
+											<><span>"</span>{tech.attributes.name}<span>"</span>{index + 1 < skills.backend.data.length ? "," : ""}</>
+										)
+									})
+								}
+								]
+								</p>
 							</div>
 						</div>
 					</fieldset>
@@ -33,20 +69,51 @@ function Index(){
 					<p>root@spyro:/Education#</p>
 				</div>
 				<div className="terminal-body">
-					<fieldset className="terminal-box w-full">
-						<legend>Secundary Education</legend>
-						<div className="p-3 text-xs sm:text-base">
-							<p>{">"} <span>Institution:</span></p>
-							<p>{">"} <span>Web:</span></p>
-							<p>{">"} <span>Web:</span></p>
+					<div className="endpoint-box ">
+						<div className="endpoint">
+							<p>{process.env.NEXT_PUBLIC_API}{data.studies.links.self}</p>
 						</div>
-					</fieldset>
-					<div className="p-3 border-2 border-light-gray mt-4 rounded-sm">
+						<div className="endpoint-button">
+							<a target="_blank" className="hover:text-orange/75 transition" href={`${process.env.NEXT_PUBLIC_API}${data.studies.links.self}`}><FontAwesomeIcon icon="fa-solid fa-up-right-from-square" /></a>
+						</div>
+					</div>
+					<div className="md:grid md:grid-cols-2">
+						{ 
+							studies.map((study : any, index : number)=>{
+								return(
+									<fieldset className={`terminal-box ${index + 1 < studies.length ? "md:mr-3 mb-5 md:mb-0" : ""}`}>
+										<legend>{study.title}</legend>
+										<div className="p-3 text-xs sm:text-base">
+											<p>{">"} <span>Institution:</span> { study.institution }</p>
+											<p>{">"} <span>Location:</span> {study.ubication}</p>
+											<p>{">"} <span>Graduation_year:</span> {study.graduation_year}</p>
+										</div>
+									</fieldset>
+								)
+							})
+						}
 					</div>
 				</div>
 			</div>
 		</div>
 	)
+}
+
+export async function getServerSideProps(){
+	let response = await fetch(`${process.env.NEXT_PUBLIC_API}/developers/${process.env.DEV_ID}`, {
+		method : "GET",
+		headers : {
+			"Content-Type" : "application/json"
+		}
+	});	
+
+	let data = await response.json();
+
+	return {
+		props : {
+			developer : data
+		}
+	}
 }
 
 export default Index;

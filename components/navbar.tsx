@@ -51,11 +51,11 @@ export default function Navbar(){
 
       <div className="flex items-center gap-4">
         <div className="sm:gap-4 sm:flex hidden">
-          <a className="px-2 py-2.5 text-md" href="#">
+          <a className="px-2 py-2.5 text-md" target="_blank" href={`${process.env.NEXT_PUBLIC_REPO}`}>
             Repository <FontAwesomeIcon icon="fa-brands fa-github" />
           </a>
           <div className="hidden sm:flex">
-            <a className="px-2 py-2.5 text-md" href="#" >
+            <a className="px-2 py-2.5 text-md" target="_blank" href={`${process.env.NEXT_PUBLIC_API}/docs`} >
               API <FontAwesomeIcon icon="fa-solid fa-server" />
             </a>
           </div>

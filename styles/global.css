@@ -44,3 +44,34 @@ span{
 	@apply px-5 md:ml-5 text-center md:text-left;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+	height: 3px;
+}
+
+.endpoint-box{
+	@apply text-xs sm:text-sm p-3 border-2 border-light-gray mb-4 rounded-sm flex max-w-5xl;
+}
+
+.endpoint {
+	@apply whitespace-nowrap overflow-x-auto;
+	width: 90%;
+}
+
+.endpoint-button{
+	width: 10%;
+	@apply flex justify-end;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
