@@ -58,7 +58,7 @@ export default function Navbar(){
 
           <div className="flex items-center gap-4">
             <div className="sm:gap-4 sm:flex hidden">
-              <a className="px-2 py-2.5 text-md hover:text-orange" target="_blank" href={`${process.env.NEXT_PUBLIC_REPO}`}>
+              <a className="px-2 py-2.5 text-md hover:text-orange" target="_blank" href="https://github.com/rootspyro">
                 Repository <FontAwesomeIcon icon="fa-brands fa-github" />
               </a>
               <div className="hidden sm:flex">

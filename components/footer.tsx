@@ -1,16 +1,17 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Typed from "typed.js"
 export default function Footer(){
 
+	const [contact, setContact] = useState<any>({});
 	useEffect(()=>{
-		/*
-		new Typed('.footer-logo',{
-			strings : ['$ root@<span>spyro</span>:/Footer#'],
-			typeSpeed : 40
-			});
-		 */
+		fetch(`${process.env.NEXT_PUBLIC_API}/developers/62e35d9de62f85cf7553560a/contact`, { 
+
+		}).then( response => response.json() )
+		.then( data =>{
+			setContact(data.data);
+			console.log(data);
+		})
 	},[]);
 
 	return(
@@ -29,50 +30,41 @@ export default function Footer(){
 
 						<ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
 							<li>
-								<a className="transition hover:text-dark-text" href="/">
+								<Link href="#"><a className="transition hover:text-dark-text">
 									About
-								</a>
+								</a></Link>
 							</li>
 
 							<li>
-								<a className="transition hover:text-dark-text" href="/">
+								<a className="transition hover:text-dark-text" href="#">
 									CV	
 								</a>
 							</li>
 
 							<li>
-								<a className="transition hover:text-dark-text" href="/">
+								<a className="transition hover:text-dark-text" href={`${process.env.NEXT_PUBLIC_API}/docs`} target="_blank">
 									API	
 								</a>
 							</li>
 
 							<li>
-								<a className="transition hover:text-dark-text" href="/">
+								<a className="transition hover:text-dark-text" href={`${contact.github}?tab=repositories`} target="_blank" >
 									Repositories	
 								</a>
 							</li>
 
 							<li>
-								<a className="transition hover:text-dark-text" href="/">
+								<Link href="#"><a className="transition hover:text-dark-text">
 									Projects
-								</a>
+								</a></Link>
 							</li>
 						</ul>
 					</nav>
 
 					<ul className="flex text-dark-text justify-center gap-6 mt-12 md:gap-8 text-2xl md:text-xl">
 						<li>
-							<a href="#"
-								rel="noopener noreferrer"
-								className="transition hover:text-orange"
-							>
-								<FontAwesomeIcon icon="fa-brands fa-facebook" />
-							</a>
-						</li>
-
-						<li>
 							<a
-								href="#" 
+								href={contact.instagram}
 								rel="noopener noreferrer"
 								target="_blank"
 								className="transition hover:text-orange"
@@ -84,7 +76,7 @@ export default function Footer(){
 
 						<li>
 							<a
-								href="/"
+								href={contact.twitter}
 								rel="noopener noreferrer"
 								target="_blank"
 								className="transition hover:text-orange"
@@ -96,7 +88,7 @@ export default function Footer(){
 
 						<li>
 							<a
-								href="/"
+								href={contact.github}
 								rel="noopener noreferrer"
 								target="_blank"
 								className="transition hover:text-orange"
@@ -108,7 +100,7 @@ export default function Footer(){
 
 						<li>
 							<a
-								href="/"
+								href={contact.linkedin}
 								rel="noopener noreferrer"
 								target="_blank"
 								className="transition hover:text-orange"

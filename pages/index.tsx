@@ -114,7 +114,7 @@ function Index(props : { developer : any }){
 }
 
 export async function getServerSideProps(){
-	let response = await fetch(`${process.env.NEXT_PUBLIC_API}/developers/${process.env.DEV_ID}`, {
+	let response = await fetch(`${process.env.NEXT_PUBLIC_API}/developers/62e35d9de62f85cf7553560a`, {
 		method : "GET",
 		headers : {
 			"Content-Type" : "application/json"
