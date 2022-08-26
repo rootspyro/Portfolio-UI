@@ -65,6 +65,16 @@ span{
 	z-index: 2;
 }
 
+.modal-background { 
+	background-color: rgba(42, 41, 39, 0.9);
+	z-index: 50;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+}
+
 @media only screen and ( min-width: 420px ) {
 	#profile-terminal {
 		display: flex;

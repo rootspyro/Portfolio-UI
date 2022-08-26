@@ -22,7 +22,7 @@ function Index(props : { developer : any }){
 	},[]);
 
 	return(
-		<div className="flex justify-center flex-wrap px-5 sm:px-10 md:px-28">
+		<>
 			<div className="endpoint-box mt-24 w-full bg-dark-gray shadow-lg">
 				<div className="endpoint">
 					<span id="main-endpoint" className="text-light-gray"></span>
@@ -80,7 +80,7 @@ function Index(props : { developer : any }){
 
 			<div className="terminal mt-12 mb-12">
 				<div className="terminal-header">
-					<p>root@spyro:/Education#</p>
+					<p>root@spyro:/Education# </p>
 				</div>
 				<div className="terminal-body">
 					<div className="endpoint-box ">
@@ -109,7 +109,7 @@ function Index(props : { developer : any }){
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

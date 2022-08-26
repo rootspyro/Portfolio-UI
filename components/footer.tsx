@@ -10,7 +10,6 @@ export default function Footer(){
 		}).then( response => response.json() )
 		.then( data =>{
 			setContact(data.data);
-			console.log(data);
 		})
 	},[]);
 
