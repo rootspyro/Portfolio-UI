@@ -1,9 +1,19 @@
 import Link from "next/link"
+import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {useState} from "react";
+import {useState, useEffect} from "react";
 export default function MobileMenu(props : any){
   const {setMenu, handleMenu} = props;
-  const [ selected, setSelected ] = useState("about");
+  const [ selected, setSelected ] = useState("");
+
+  const router = useRouter();
+  const site = router.pathname.split("/")
+
+  useEffect(()=>{
+    setSelected(site[1] == "" ? "about" : site[1]);
+  })
+
+
 	return(
     <>
     <div className="flex flex-col justify-between h-screen bg-white border-r z-20">

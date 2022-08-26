@@ -41,7 +41,6 @@ function CompanyAbout(props : any){
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.data);
 				setData(data.data);
 			});
 		}
