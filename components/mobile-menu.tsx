@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {useState} from "react";
 export default function MobileMenu(props : any){
   const {setMenu, handleMenu} = props;
+  const [ selected, setSelected ] = useState("about");
 	return(
     <>
     <div className="flex flex-col justify-between h-screen bg-white border-r z-20">
@@ -9,29 +11,29 @@ export default function MobileMenu(props : any){
         <span className="block w-32 h-10 bg-gray-200 rounded-lg"></span>
 
         <nav className="flex flex-col mt-6 space-y-1">
-          <Link href="/"><a onClick={()=> setMenu(false)}
-            className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg"
+          <Link href="/"><a onClick={()=> {setMenu(false); setSelected("about")}}
+            className={`flex items-center px-4 py-2  ${ selected == "about" ? "bg-gray-100 text-gray-700" : "text-gray-500" } rounded-lg`}
           >
             <FontAwesomeIcon icon="fa-solid fa-user" />
             <span className="ml-3 text-sm font-medium"> About </span>
           </a></Link>
 
-          <Link href="#"><a onClick={()=> setMenu(false)}
-            className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          <Link href="/experience"><a onClick={()=> {setMenu(false); setSelected("experience");}}
+            className={`flex items-center px-4 py-2 text-gray-500 ${ selected == "experience" ? "bg-gray-100 text-gray-700" : "text-gray-500" } rounded-lg hover:bg-gray-100 hover:text-gray-700`}
           >
             <FontAwesomeIcon icon="fa-solid fa-house-laptop" />
             <span className="ml-3 text-sm font-medium"> Experience </span>
           </a></Link>
 
-          <Link href="#"><a onClick={()=> setMenu(false)}
-            className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          <Link href="#"><a onClick={()=> {setMenu(false); setSelected("projects")}}
+            className={`flex items-center px-4 py-2 text-gray-500 ${ selected == "projects" ? "bg-gray-100 text-gray-700" : "text-gray-500" } rounded-lg hover:bg-gray-100 hover:text-gray-700`}
           >
             <FontAwesomeIcon icon="fa-solid fa-briefcase" />
             <span className="ml-3 text-sm font-medium"> Projects </span>
           </a></Link>
         
-          <Link href="#"><a onClick={()=> setMenu(false)}
-            className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          <Link href="#"><a onClick={()=> {setMenu(false); setSelected("skills")}}
+            className={`flex items-center px-4 py-2 text-gray-500 ${ selected == "skills" ? "bg-gray-100 text-gray-700" : "text-gray-500" } rounded-lg hover:bg-gray-100 hover:text-gray-700`}
           >
             <FontAwesomeIcon icon="fa-solid fa-laptop-code" />
             <span className="ml-3 text-sm font-medium"> Skills </span>

@@ -25,14 +25,14 @@ export default function Navbar(){
 
               <ul className="flex items-center gap-6 text-md">
                 <li>
-                  <Link href="#">
+                  <Link href="/">
                     <a className="text-light-gray transition hover:text-orange/75">
                       About
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/experience">
                     <a className="text-light-gray transition hover:text-orange/75">
                       Experience
                     </a>
