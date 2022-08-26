@@ -2,12 +2,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typed from "typed.js";
 import { useEffect, useState } from "react";
 
+
 function CompanyAbout(props : any){
 
-	const { company_id, open, setOpen } = props;
-	const [ data, setData ] = useState({});
+	const baseData = {
+			id : "",
+			attributes : {
+				name : "",
+				country : "",
+				direction : "",
+				description : "",
+				contact : {
+					web : "",
+					email : "",
+					phone : ""
+				}
+			},
+			links : {
+				self : ""
+			},
+			meta : {}
+	}
 
-	console.log(company_id);
+	const { company_id, open, setOpen } = props;
+	const [ data, setData ] = useState(baseData);
 
 	useEffect(()=>{
 
@@ -23,8 +41,8 @@ function CompanyAbout(props : any){
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
-				setData(data);
+				console.log(data.data);
+				setData(data.data);
 			});
 		}
 
@@ -34,7 +52,40 @@ function CompanyAbout(props : any){
 		<>
 			<div className={`modal-background ${open ? "flex" : "hidden"}`}>
 				<div className="modal-header">
-					<button onClick={()=>setOpen(false)}>X</button>
+					<div className="flex flex-wrap fixed w-full justify-center px-3">
+						<div className="terminal mt-24">
+							<div className="terminal-header text-xs sm:text-sm">
+								<p>root@spyro:/Companies#</p>
+							</div>
+							<div className="terminal-body">
+								<div>
+									<fieldset className="terminal-box sm:text-base text-xs">
+										<legend>{data.attributes.name}</legend>
+										<div className="p-5">
+											<p>{">"} <span>Country: </span>{ data.attributes.country}</p>
+											<p>{">"} <span>Direction: </span>{ data.attributes.direction}</p>
+											<fieldset className="terminal-box sm:text-base text-xs mt-3">
+												<legend><span>Description</span></legend>
+												<div className="p-3">
+													{ data.attributes.description }
+												</div>
+											</fieldset>
+											<div className="flex justify-end">
+												<ul className="flex mt-5">
+													<li><a href={data.attributes.contact.web} target="_blank" className="underline hover:text-orange transition">Web</a></li>
+													<li><a href={`mailto:${data.attributes.contact.email}`} target="_blank" className="underline ml-3 hover:text-orange transition">Email</a></li>
+													<li><a href={`tel:${data.attributes.contact.phone}`} target="_blank" className="underline ml-3 hover:text-orange transition">Phone</a></li>
+												</ul>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+						<div className="w-full mt-16 text-center">
+							<button onClick={()=>setOpen(false)} className="py-3 border-2 border-light-gray px-5 rounded-full bg-dark-gray shadow-lg hover:bg-light-gray hover:text-dark">X</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
