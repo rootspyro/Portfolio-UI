@@ -21,7 +21,6 @@ function CompanyAbout(props : any){
 			links : {
 				self : ""
 			},
-			meta : {}
 	}
 
 	const { company_id, open, setOpen } = props;
@@ -41,6 +40,7 @@ function CompanyAbout(props : any){
 			})
 			.then(response => response.json())
 			.then(data => {
+				console.log(data);
 				setData(data.data);
 			});
 		}
@@ -95,7 +95,7 @@ export default function Experience(props : any ){
 
 	const {experience} = props;
 	const data = experience.data;
-	const jobs = data.jobs.data;
+	const jobs = data.jobs;
 
 	const [ companyId, setCompanyId ] = useState<string>('');
 	const [ aboutOpen, setAboutOpen ] = useState<Boolean>(false);
@@ -146,19 +146,19 @@ export default function Experience(props : any ){
 						{
 							jobs.map((job : any, index : number)=>{
 								return(
-									<fieldset key={job.attributes.title} className={`
+									<fieldset key={job.data.title} className={`
 										terminal-box text-xs sm:text-base 
 										${ jobs.length % 2 != 0 && index + 1 == jobs.length ? "col-span-2" : "" }
 										${index == 0 ? "" : "mt-8 md:mt-0"}
 										`}>
-										<legend>{job.attributes.title}</legend>
+										<legend>{job.data.title}</legend>
 										<div className="p-3">
-											<p>{">"} <span>Company:</span> {job.attributes.company_name}</p>
-											<p>{">"} <span>Type_of_work:</span> {job.attributes.type_of_work}</p>
-											<p>{">"} <span>Position:</span> {job.attributes.position}</p>
-											<p>{">"} <span>Entry_date:</span> {job.attributes.entry_date}</p>
-											<p>{">"} <span>retirement_date:</span> {job.attributes.retirement_date}</p>
-											<button className="sm:text-end text-center w-full mt-3 px-2 hover:text-orange transition underline decoration-2" onClick={()=>{ setCompanyId(job.company_id); setAboutOpen(true); }}>About_Company</button>
+											<p>{">"} <span>Company:</span> {job.data.company_name}</p>
+											<p>{">"} <span>Type_of_work:</span> {job.data.type_oork}</p>
+											<p>{">"} <span>Position:</span> {job.data.position}</p>
+											<p>{">"} <span>Entry_date:</span> {job.data.entry_date}</p>
+											<p>{">"} <span>retirement_date:</span> {job.data.retirement_date}</p>
+											<button className="sm:text-end text-center w-full mt-3 px-2 hover:text-orange transition underline decoration-2" onClick={()=>{ setCompanyId(job.data.company_id); setAboutOpen(true); }}>About_Company</button>
 										</div>
 									</fieldset>
 								)

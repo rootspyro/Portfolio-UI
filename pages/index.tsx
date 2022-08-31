@@ -9,9 +9,11 @@ function Index(props : { developer : any }){
 	const studies = data.studies.data;
 	const skills = data.skills.data;
 
+	console.log(studies)
+
 	useEffect(()=>{
 		new Typed('#main-endpoint',{
-			strings : [`<span className="text-orange">curl</span> -X 'GET' '${process.env.NEXT_PUBLIC_API}/developers'`],
+			strings : [`<span className="text-orange">curl</span> -X 'GET' '${process.env.NEXT_PUBLIC_API}${developer.links.self}'`],
 			typeSpeed : 40 
 		})
 
@@ -28,7 +30,7 @@ function Index(props : { developer : any }){
 					<span id="main-endpoint" className="text-light-gray"></span>
 				</div>
 				<div className="endpoint-button">
-					<a className="hover:text-orange/75 transition" target="_blank" href={`${process.env.NEXT_PUBLIC_API}/developers`}>
+					<a className="hover:text-orange/75 transition" target="_blank" href={`${process.env.NEXT_PUBLIC_API}${developer.links.self}`}>
 						<FontAwesomeIcon icon="fa-solid fa-up-right-from-square" />
 					</a>
 				</div>
@@ -54,10 +56,11 @@ function Index(props : { developer : any }){
 							<div className="hidden lg:block">
 								<p> {">"} <span>Frontend_techs: </span> [
 								{
-									skills.frontend.data.map((tech : any,index : number) => {
+									skills.frontend.data.map((tech : any, index : number) => {
 										return(
-											<><span>"</span>{tech.attributes.name}<span>"</span>{index + 1 < skills.frontend.data.length ? "," : ""}</>
+											<><span>"</span>{tech.data.name}<span>"</span>{index + 1 < skills.frontend.data.length ? "," : ""}</>
 										)
+
 									})
 								}
 								]
@@ -66,7 +69,7 @@ function Index(props : { developer : any }){
 								{
 									skills.backend.data.map((tech : any,index : number) => {
 										return(
-											<><span>"</span>{tech.attributes.name}<span>"</span>{index + 1 < skills.backend.data.length ? "," : ""}</>
+											<><span>"</span>{tech.data.name}<span>"</span>{index + 1 < skills.backend.data.length ? "," : ""}</>
 										)
 									})
 								}
@@ -78,7 +81,7 @@ function Index(props : { developer : any }){
 				</div>
 			</div>
 
-			<div className="terminal mt-12 mb-12">
+			<div className="terminal mt-12 mb-16">
 				<div className="terminal-header">
 					<p>root@spyro:/Education# </p>
 				</div>
@@ -98,9 +101,9 @@ function Index(props : { developer : any }){
 									<fieldset key={study.title} className={`terminal-box ${index + 1 < studies.length ? "md:mr-3 mb-5 md:mb-0" : ""}`}>
 										<legend>{study.title}</legend>
 										<div className="p-3 text-xs sm:text-base">
-											<p>{">"} <span>Institution:</span> { study.institution }</p>
-											<p>{">"} <span>Location:</span> {study.ubication}</p>
-											<p>{">"} <span>Graduation_year:</span> {study.graduation_year}</p>
+											<p>{">"} <span>Institution:</span> { study.data.institution }</p>
+											<p>{">"} <span>Location:</span> {study.data.ubication}</p>
+											<p>{">"} <span>Graduation_year:</span> {study.data.graduation_year}</p>
 										</div>
 									</fieldset>
 								)
