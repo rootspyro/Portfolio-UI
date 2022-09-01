@@ -40,7 +40,6 @@ function CompanyAbout(props : any){
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				setData(data.data);
 			});
 		}
@@ -167,7 +166,7 @@ export default function Experience(props : any ){
 					</div>
 				</div>
 			</div>
-			<button className=" shadow-lg max-w-5xl block w-full text-center border-2 border-light-gray rounded-sm p-3 mb-24 bg-dark-gray hover:bg-light-gray hover:text-dark transition">Download CV <FontAwesomeIcon icon="fa-solid fa-download" /></button>
+			<a href="/documents/CV.pdf" target="_blank" className=" shadow-lg max-w-5xl block w-full text-center border-2 border-light-gray rounded-sm p-3 mb-24 bg-dark-gray hover:bg-light-gray hover:text-dark transition">Download CV <FontAwesomeIcon icon="fa-solid fa-download" /></a>
 			<CompanyAbout open={aboutOpen} setOpen={setAboutOpen} company_id={companyId} />
 		</>
 	)
