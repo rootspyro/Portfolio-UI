@@ -9,8 +9,6 @@ function Index(props : { developer : any }){
 	const studies = data.studies.data;
 	const skills = data.skills.data;
 
-	console.log(studies)
-
 	useEffect(()=>{
 		new Typed('#main-endpoint',{
 			strings : [`<span className="text-orange">curl</span> -X 'GET' '${process.env.NEXT_PUBLIC_API}${developer.links.self}'`],

@@ -39,7 +39,7 @@ export default function Navbar(){
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/projects">
                     <a className="text-light-gray transition hover:text-orange/75">
                       Projects
                     </a>

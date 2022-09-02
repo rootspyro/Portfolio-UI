@@ -35,7 +35,7 @@ export default function Footer(){
 							</li>
 
 							<li>
-								<a className="transition hover:text-dark-text" href="#">
+								<a className="transition hover:text-dark-text" href="" target="_blank"> 
 									CV	
 								</a>
 							</li>
@@ -52,11 +52,6 @@ export default function Footer(){
 								</a>
 							</li>
 
-							<li>
-								<Link href="#"><a className="transition hover:text-dark-text">
-									Projects
-								</a></Link>
-							</li>
 						</ul>
 					</nav>
 
