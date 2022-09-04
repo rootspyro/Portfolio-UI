@@ -9,8 +9,6 @@ export default function Projects(props : any) {
 
 	const data = projects.data;
 
-	console.log(data);
-
 	useEffect(()=>{
 		new Typed("#ls-projects",{
 			strings : [`ls -la`],
