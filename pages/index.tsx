@@ -51,29 +51,6 @@ function Index(props : { developer : any }){
 							<p> {">"} <span>Location:</span> {data.city}, {data.region} - {data.country}</p>
 							<p> {">"} <span>Role:</span> {data.experience.data.role}</p>
 							<p> {">"} <span>Experience:</span> +{data.experience.data.years} years of laboral experience</p>
-							<div className="hidden lg:block">
-								<p> {">"} <span>Frontend_techs: </span> [
-								{
-									skills.frontend.data.map((tech : any, index : number) => {
-										return(
-											<><span>"</span>{tech.data.name}<span>"</span>{index + 1 < skills.frontend.data.length ? "," : ""}</>
-										)
-
-									})
-								}
-								]
-								</p>
-								<p> {">"} <span>Backend_techs: </span> [
-								{
-									skills.backend.data.map((tech : any,index : number) => {
-										return(
-											<><span>"</span>{tech.data.name}<span>"</span>{index + 1 < skills.backend.data.length ? "," : ""}</>
-										)
-									})
-								}
-								]
-								</p>
-							</div>
 						</div>
 					</fieldset>
 				</div>

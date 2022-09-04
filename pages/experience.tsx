@@ -62,17 +62,12 @@ function CompanyAbout(props : any){
 										<div className="p-5">
 											<p>{">"} <span>Country: </span>{ data.attributes.country}</p>
 											<p>{">"} <span>Direction: </span>{ data.attributes.direction}</p>
-											<fieldset className="terminal-box sm:text-base text-xs mt-3">
-												<legend><span>Description</span></legend>
-												<div className="p-3">
-													{ data.attributes.description }
-												</div>
-											</fieldset>
+											<p>{">"} <span>Description: </span>{ data.attributes.description}</p>
 											<div className="flex justify-end">
 												<ul className="flex mt-5">
-													<li><a href={data.attributes.contact.web} target="_blank" className="underline hover:text-orange transition">Web</a></li>
-													<li><a href={`mailto:${data.attributes.contact.email}`} target="_blank" className="underline ml-3 hover:text-orange transition">Email</a></li>
-													<li><a href={`tel:${data.attributes.contact.phone}`} target="_blank" className="underline ml-3 hover:text-orange transition">Phone</a></li>
+													<li><a href={data.attributes.contact.web} target="_blank" className="hover:underline hover:text-orange transition">Web</a></li>
+													<li><a href={`mailto:${data.attributes.contact.email}`} target="_blank" className="hover:underline ml-3 hover:text-orange transition">Email</a></li>
+													<li><a href={`tel:${data.attributes.contact.phone}`} target="_blank" className="hover:underline ml-3 hover:text-orange transition">Phone</a></li>
 												</ul>
 											</div>
 										</div>
