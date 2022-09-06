@@ -51,6 +51,7 @@ function Index(props : { developer : any }){
 							<p> {">"} <span>Location:</span> {data.city}, {data.region} - {data.country}</p>
 							<p> {">"} <span>Role:</span> {data.experience.data.role}</p>
 							<p> {">"} <span>Experience:</span> +{data.experience.data.years} years of laboral experience</p>
+							<p> {">"} <span>English_level:</span> {data.english_level}</p>
 						</div>
 					</fieldset>
 				</div>
