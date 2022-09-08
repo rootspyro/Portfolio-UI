@@ -49,7 +49,7 @@ export default function MobileMenu(props : any){
             <span className="ml-3 text-sm font-medium"> Skills </span>
           </a></Link>
 
-          <a onClick={()=> setMenu(false)} href="https://github.com/rootspyro/Portfolio-API" target="_blank"
+          <a onClick={()=> setMenu(false)} href="https://github.com/rootspyro/Portfolio-UI" target="_blank"
             className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
           >
             <FontAwesomeIcon icon="fa-brands fa-github" />
