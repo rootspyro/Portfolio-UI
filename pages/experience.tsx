@@ -148,7 +148,6 @@ export default function Experience(props : any ){
 										<legend>{job.data.title}</legend>
 										<div className="p-3">
 											<p>{">"} <span>Company:</span> {job.data.company_name}</p>
-											<p>{">"} <span>Type_of_work:</span> {job.data.type_oork}</p>
 											<p>{">"} <span>Position:</span> {job.data.position}</p>
 											<p>{">"} <span>Entry_date:</span> {job.data.entry_date}</p>
 											<p>{">"} <span>retirement_date:</span> {job.data.retirement_date}</p>
